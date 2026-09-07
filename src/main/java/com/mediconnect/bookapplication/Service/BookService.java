@@ -17,29 +17,19 @@ public class BookService {
     }
 
     public Book addBook(Book book) {
-        if (bookRepository.existsById(book.getIsbn())) {
-            return null;
-        }
         return bookRepository.save(book);
     }
 
     public Book updateBook(Book book) {
-        if (!bookRepository.existsById(book.getIsbn())) {
-            return null;
-        }
         return bookRepository.save(book);
     }
 
-    public boolean deleteBook(String isbn) {
-        if (!bookRepository.existsById(isbn)) {
-            return false;
-        }
-        bookRepository.deleteById(isbn);
-        return true;
+    public void deleteBook(String isbn) {
+        bookRepository.delete(isbn);
     }
 
     public Book getBook(String isbn) {
-        return bookRepository.findById(isbn).orElse(null);
+        return bookRepository.find(isbn);
     }
 
     public List<Book> getAllBooks() {

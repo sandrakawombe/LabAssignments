@@ -1,40 +1,19 @@
 package com.mediconnect.bookapplication.Model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-@Entity
 public class Book {
-    @Id
-    @GeneratedValue
-    private Long id;
+
     private String isbn;
     private String author;
     private String title;
-    private BigDecimal price;
+    private double price;
 
     public Book() {
     }
 
-    public Book(Long id, String isbn, String author, String title, BigDecimal price) {
-        this.id = id;
+    public Book(String isbn, String author, String title, double price) {
         this.isbn = isbn;
         this.author = author;
         this.title = title;
         this.price = price;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getIsbn() {
@@ -61,13 +40,11 @@ public class Book {
         this.title = title;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
-
-
 }
